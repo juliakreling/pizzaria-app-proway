@@ -29,6 +29,8 @@ else
 fi
 
 # Stop existing containers and rebuild
+cd "$PROJECT_DIR"
+docker-compose down
 docker-compose up --build -d --force-recreate
 
 # Create cron job to run every 5 minutes (no log redirection)
