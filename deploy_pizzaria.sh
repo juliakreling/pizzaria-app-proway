@@ -4,15 +4,17 @@ set -e
 
 # Configurations
 REPO_URL="https://github.com/juliakreling/pizzaria-app-proway.git"
-PROJECT_DIR="/opt/pizzaria-app-proway"
+PROJECT_DIR="/pizzaria-app-julia"
 
 echo "[INFO] Starting Pizzaria deployment..."
 
 # Install Docker and dependencies
 sudo apt update -y
-sudo apt install -y docker.io docker-compose git
+sudo apt install -y docker.io docker-compose git cron
 sudo systemctl start docker
 sudo systemctl enable docker
+sudo systemctl enable cron
+sudo systemctl start cron
 echo "[INFO] Dependencies successfully installed!"
 
 # Update or clone repository
