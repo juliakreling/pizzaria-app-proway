@@ -4,7 +4,7 @@ set -e
 
 # Configurations
 REPO_URL="https://github.com/juliakreling/pizzaria-app-proway.git"
-PROJECT_DIR="/pizzaria-app-julia"
+PROJECT_DIR="/pizzaria-app-proway"
 
 echo "[INFO] Starting Pizzaria deployment..."
 
