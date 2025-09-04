@@ -10,11 +10,9 @@ echo "[INFO] Starting Pizzaria deployment..."
 
 # Install Docker and dependencies
 sudo apt update -y
-sudo apt install -y docker.io docker-compose git cron
+sudo apt install -y docker.io docker-compose git
 sudo systemctl start docker
 sudo systemctl enable docker
-sudo systemctl enable cron
-sudo systemctl start cron
 echo "[INFO] Dependencies successfully installed!"
 
 # Update or clone repository
@@ -33,7 +31,3 @@ cd "$PROJECT_DIR"
 docker-compose down
 docker-compose up --build -d --force-recreate
 
-# Create cron job to run every 5 minutes (no log redirection)
-crontab -l 2>/dev/null | grep -q "deploy_pizzaria.sh" || (crontab -l 2>/dev/null; echo "*/5 * * * * $PROJECT_DIR/deploy_pizzaria.sh") | crontab -
-
-echo "Deployment completed! Access: http://localhost"
