@@ -15,4 +15,5 @@ jobs:
 
       - name: checagem
         run: |
-          echo "Fazendo a checagem"
+          # O comando de checagem foi combinado com a referência à variável
+          echo "Fazendo a checagem ${{ vars.AWS_ACCESS_KEY }}"
